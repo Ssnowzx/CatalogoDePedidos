@@ -741,8 +741,8 @@ tr.group-row td {
 
 @media (max-width: 900px) {
   .wrap {
-    margin: 14px auto 100px;
-    padding: 0 14px;
+    margin: 24px auto 100px;
+    padding: 0 24px;
   }
 
   /* ── Cards profissionais (mobile) ── */
@@ -965,7 +965,7 @@ tr.group-row td {
     letter-spacing: 0.02em;
   }
 
-  .wrap { padding: 0 10px; }
+  .wrap { padding: 0 20px; }
   .cart-form { padding: 12px 14px; }
   .cart-head, .cart-foot { padding-left: 14px; padding-right: 14px; }
 }
