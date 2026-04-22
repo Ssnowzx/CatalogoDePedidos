@@ -36,10 +36,13 @@ O projeto foi refatorado para uma estrutura modular, limpa e preparada para ser 
 ├── index.html       # Arquivo principal de entrada
 ├── css/
 │   └── styles.css   # Variáveis CSS, layout e responsividade avançada
-└── js/
-    ├── app.js       # Lógica do carrinho, segurança e DOM
-    └── dados.js     # Fonte de dados oficial em JSON-like
+├── js/
+│   ├── app.js       # Lógica do carrinho, segurança e DOM
+│   └── dados.js     # Fonte de dados oficial em JSON-like
+└── DESIGN_SYSTEM.md # Documentação completa da UI/UX
 ```
+
+Para detalhes sobre cores, tipografia, estilo dos botões e identidade visual, consulte a **[Documentação do Design System](./DESIGN_SYSTEM.md)**.
 
 ---
 
