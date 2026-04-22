@@ -160,6 +160,25 @@ tbody.addEventListener('click', e => {
 // ─── CARRINHO ────────────────────────────────────────────
 const cart = new Map();   // key → { c, p, t, v, qty }
 
+function saveCart() {
+  localStorage.setItem('cartBarracao', JSON.stringify(Array.from(cart.entries())));
+}
+
+function loadCart() {
+  try {
+    const saved = localStorage.getItem('cartBarracao');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      parsed.forEach(([k, v]) => {
+        const src = productIndex.get(k);
+        if (src) {
+          cart.set(k, { c: src.c, p: src.p, t: src.t, v: src.v, qty: clampQty(v.qty) });
+        }
+      });
+    }
+  } catch(e) {}
+}
+
 const cartDrawer = document.getElementById('cartDrawer');
 const cartBody   = document.getElementById('cartBody');
 const cartQty    = document.getElementById('cartQty');
@@ -249,6 +268,8 @@ function renderCart() {
   cartSum.textContent = fmt(total);
   const floatBadge = document.getElementById('floatingCartQty');
   if (floatBadge) floatBadge.textContent = String(qty);
+
+  saveCart();
 }
 
 cartBody.addEventListener('change', e => {
@@ -283,9 +304,9 @@ function syncAddButtons() {
 
 // ─── VALIDAÇÃO ───────────────────────────────────────────
 const requiredFields = [
-  { id: 'clientName',    validate: v => cleanInput(v, MAX_NAME_LEN).length >= 2 },
-  { id: 'clientPhone',   validate: v => v.replace(/\D/g, '').length >= 10 },
-  { id: 'paymentMethod', validate: v => v.trim().length > 0 },
+  { id: 'clientName',     validate: v => cleanInput(v, MAX_NAME_LEN).length >= 2 },
+  { id: 'clientLastName', validate: v => cleanInput(v, MAX_NAME_LEN).length >= 2 },
+  { id: 'paymentMethod',  validate: v => v.trim().length > 0 },
 ];
 
 function validateForm() {
@@ -343,8 +364,7 @@ function snapshotOrder() {
     items.push({ c: src.c, p: src.p, t: src.t, v: unit, qty });
   });
   return {
-    client: cleanInput(document.getElementById('clientName').value,     MAX_NAME_LEN),
-    phone:  cleanInput(document.getElementById('clientPhone').value,    MAX_PHONE_LEN),
+    client: cleanInput(document.getElementById('clientName').value, MAX_NAME_LEN) + ' ' + cleanInput(document.getElementById('clientLastName').value, MAX_NAME_LEN),
     date:   today(),
     method: cleanInput(document.getElementById('paymentMethod').value,  MAX_METHOD),
     obs:    cleanInput(document.getElementById('observations').value,   MAX_OBS_LEN),
@@ -361,7 +381,6 @@ function buildReceipt() {
   details.textContent = '';
   const detailList = [
     ['Cliente',   order.client],
-    ['Telefone',  order.phone],
     ['Data',      order.date],
     ['Pagamento', order.method],
     ['Total',     fmt(order.total), 'total-value'],
@@ -427,7 +446,6 @@ function buildOrderText(o) {
     '==============================',
     '',
     `Cliente: ${o.client}`,
-    `Telefone: ${o.phone}`,
     `Data: ${o.date}`,
     `Forma de Pagamento: ${o.method}`,
   ];
@@ -452,7 +470,6 @@ function buildWhatsMessage(o) {
     '*NOVO PEDIDO*',
     '',
     `*Cliente:* ${o.client}`,
-    `*Telefone:* ${o.phone}`,
     `*Data:* ${o.date}`,
     `*Pagamento:* ${o.method}`,
   ];
@@ -503,7 +520,9 @@ function openExternal(url) {
 }
 
 // ─── INIT ─────────────────────────────────────────────────
+loadCart();
 renderTable();
+renderCart();
 
 // Scroll handler para mostrar/esconder carrinho flutuante
 window.addEventListener('scroll', () => {

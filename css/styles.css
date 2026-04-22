@@ -665,19 +665,28 @@ tr.group-row td {
 
 /* ── Intro Text ── */
 .intro-text {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-2) 0%, #050505 100%);
+  border: 1px solid var(--accent-strong);
+  border-left: 4px solid var(--whats);
   border-radius: var(--r-md);
-  padding: 14px 18px;
-  margin-bottom: 20px;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(37, 211, 102, 0.15);
+}
+.intro-text p {
+  margin: 0;
 }
 .intro-text strong {
-  color: var(--accent-strong);
-  font-weight: 600;
+  color: var(--whats);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 6px;
 }
 
 /* ── Floating Cart ── */
