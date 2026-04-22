@@ -938,15 +938,17 @@ tr.group-row td {
 
 @media (max-width: 520px) {
   header {
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-direction: column;
   }
 
   h1.brand {
-    font-size: clamp(1rem, 5.4vw, 1.5rem);
-    text-align: left;
+    font-size: clamp(1.25rem, 6.5vw, 1.7rem);
+    text-align: center;
     width: 100%;
     order: 1;
+    line-height: 1.2;
   }
 
   .cart-btn {
@@ -959,7 +961,7 @@ tr.group-row td {
 
 @media (max-width: 380px) {
   h1.brand {
-    font-size: 1rem;
+    font-size: 1.15rem;
     letter-spacing: 0.02em;
   }
 
