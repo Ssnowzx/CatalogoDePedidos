@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Metalúrgica e Selaria Lageana — tabela de produtos para pedidos de arreamentos e ferragens.">
+  <title>Metalúrgica e Selaria Lageana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1 class="brand">Metalúrgica e Selaria Lageana</h1>
+    <button id="btnCart" class="cart-btn" aria-label="Abrir meu pedido">
+      🛒 Meu Pedido <span id="cartQty" class="badge">0</span>
+    </button>
+  </header>
+
+  <div class="intro-text">
+    <p><strong>Como comprar:</strong> Selecione os produtos desejados na lista e depois ajuste a quantidade diretamente no carrinho. Simples e intuitivo!</p>
+  </div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Pesquisar produto, tipo ou categoria..." />
+    <select id="cat">
+      <option value="">Todas as categorias</option>
+    </select>
+  </div>
+
+  <div class="table-card">
+    <table id="prodTable">
+      <thead>
+        <tr>
+          <th style="width:18%">Categoria</th>
+          <th>Produto</th>
+          <th style="width:24%">Medida / Tipo</th>
+          <th style="width:13%">Preço Unit.</th>
+          <th style="width:9%;text-align:center">Ação</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div id="empty" class="empty" style="display:none">Nenhum produto encontrado.</div>
+
+</div>
+
+<!-- Carrinho / Meu Pedido -->
+<aside id="cartDrawer" class="cart-drawer" aria-label="Meu Pedido">
+  <div class="cart-head">
+    <h2>Meu Pedido</h2>
+    <button class="cart-close" id="btnCloseCart">Fechar ✕</button>
+  </div>
+  <div class="cart-body">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th class="hide-sm">Preço Unit.</th>
+          <th>Qtd.</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+  </div>
+
+  <div class="cart-form">
+    <div class="form-group">
+      <label for="clientName">Seu Nome <span class="req">*</span></label>
+      <input type="text" id="clientName" placeholder="Digite seu nome completo" required />
+    </div>
+    <div class="form-group">
+      <label for="clientPhone">Seu Telefone <span class="req">*</span></label>
+      <input type="tel" id="clientPhone" placeholder="(49) 9 9999-9999" required />
+    </div>
+    <div class="form-group">
+      <label for="orderDate">Data</label>
+      <input type="text" id="orderDate" readonly />
+    </div>
+    <div class="form-group">
+      <label for="paymentMethod">Forma de Pagamento <span class="req">*</span></label>
+      <select id="paymentMethod" required>
+        <option value="">Selecione...</option>
+        <option>Pix</option>
+        <option>Dinheiro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="observations">Observações</label>
+      <textarea id="observations" placeholder="Alguma observação sobre o pedido..."></textarea>
+    </div>
+  </div>
+
+  <div class="cart-foot">
+    <div class="cart-total">Total: <span id="cartSum">R$ 0,00</span></div>
+    <button id="btnFinish" class="btn btn-finish">Revisar Pedido</button>
+  </div>
+</aside>
+
+<!-- Modal Confirmação -->
+<div id="modal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-head">
+      <h2>Confirmar Pedido</h2>
+      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    </div>
+    <div id="modalBody">
+      <div id="receiptDetails" class="receipt-grid"></div>
+      <div id="receiptItems"></div>
+    </div>
+    <div class="modal-foot">
+      <button id="btnModalClose2" class="btn btn-export">Voltar</button>
+      <button id="btnDownload" class="btn btn-export">📄 Baixar .txt</button>
+      <button id="btnSendWhats" class="btn btn-whatsapp">📲 Fazer Pedido</button>
+    </div>
+  </div>
+</div>
+
+<!-- Carrinho Flutuante -->
+<button id="floatingCart" class="floating-cart" aria-label="Abrir carrinho flutuante">
+  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+  <span id="floatingCartQty" class="badge">0</span>
+</button>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

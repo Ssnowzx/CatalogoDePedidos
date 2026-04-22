@@ -1,0 +1,31 @@
+==============================
+       RESUMO DO PEDIDO
+==============================
+
+Cliente: Ricardo
+Data: 30/08/2025
+Forma de Pagamento: Pix
+Observações: fez pix para o Alex R$ 1.460.00
+R$ 40.00 Geovane.
+Desconto de R$ 30,00 das fivelas. R$ 2,20 cada.
+
+------------------------------
+           ITENS
+------------------------------
+Florão (Pequeno)
+   5 un x R$ 10,00 = R$ 50,00
+
+Argola (25 x 3/16)
+   200 un x R$ 1,20 = R$ 240,00
+
+Fivela vitória (16)
+   100 un x R$ 2,50 = R$ 250,00
+
+Tubo inox (1/2 x 25)
+   200 un x R$ 1,00 = R$ 200,00
+
+------------------------------
+Subtotal: R$ 740,00
+Desconto: R$ 30,00
+TOTAL GERAL: R$ 710,00
+==============================

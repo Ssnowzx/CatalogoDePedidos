@@ -1,0 +1,33 @@
+==============================
+       RESUMO DO PEDIDO
+==============================
+
+Cliente: Luciano
+Data: 30/08/2025
+Forma de Pagamento: Pix
+Observações: desconto dos R$40,00 diferença do estribo que ele ja tinha comprado.
+Fez Pix Rodrigo.
+
+------------------------------
+           ITENS
+------------------------------
+Laçinho (-)
+   3 un x R$ 28,00 = R$ 84,00
+
+Estribo Largo (inox)
+   1 un x R$ 90,00 = R$ 90,00
+
+Freio criolo Duro (ferro)
+   4 un x R$ 40,00 = R$ 160,00
+
+Espora torcida (inox)
+   1 un x R$ 28,00 = R$ 28,00
+
+Barrigueira (Fechada)
+   1 un x R$ 75,00 = R$ 75,00
+
+------------------------------
+Subtotal: R$ 437,00
+Desconto: R$ 40,00
+TOTAL GERAL: R$ 397,00
+==============================

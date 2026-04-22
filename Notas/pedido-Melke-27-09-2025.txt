@@ -1,0 +1,20 @@
+==============================
+       RESUMO DO PEDIDO
+==============================
+
+Cliente: Melke
+Data: 27/09/2025
+Forma de Pagamento: Anotou
+Observações: Nenhuma
+
+------------------------------
+           ITENS
+------------------------------
+Fivela vitória (38)
+   60 un x R$ 4,50 = R$ 270,00
+
+------------------------------
+Subtotal: R$ 270,00
+Desconto: R$ 0,00
+TOTAL GERAL: R$ 270,00
+==============================

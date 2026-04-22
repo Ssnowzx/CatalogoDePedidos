@@ -1,0 +1,20 @@
+==============================
+       RESUMO DO PEDIDO
+==============================
+
+Cliente: Alisson barrigueira
+Data: 18/10/2025
+Forma de Pagamento: Anotou
+Observações: deixou 30 barrigueira.
+
+------------------------------
+           ITENS
+------------------------------
+Argola (55 x 1/4)
+   50 un x R$ 3,30 = R$ 165,00
+
+------------------------------
+Subtotal: R$ 165,00
+Desconto: R$ 15,00
+TOTAL GERAL: R$ 150,00
+==============================
